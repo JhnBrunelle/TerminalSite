@@ -1,0 +1,8 @@
+{{this.numberOfLines}}
+
+<button {{action "addItem"}}>Add</button>
+
+{{#each commandHistory as |history|}}
+    <li>{{history.message}}</li>
+{{/each}}
+{{input type="text" value=textBuffer insert-newline="inputLineHandler"}}
