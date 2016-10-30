@@ -2,6 +2,29 @@
 body{
   background-color: #444547;
 }
+
+.container{
+  display:inline;
+  float:left;
+}
+
+.banner{
+  margin:0px;
+  font-family: "Helvetica Neue";
+  background-color: #008DD4;
+  width: 250px;
+  height:300px;
+  z-index:3;
+  position: relative;
+  left: 100px;
+  top:0px;
+  display:inline-block;
+  float:left;
+}
+
+.wrapper{
+  float:left;
+}
 .topBar{
   width:582px;
   height:25px;
@@ -49,3 +72,9 @@ body{
   width:100%;
 }
 
+/* If Screen is less than a certain width, rearrange the page*/
+@media screen and (max-width: 1024px) {
+  .banner {
+    display: none !important;
+  }
+}

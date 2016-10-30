@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   commandHistory:[
     {message :  "Hello, My name is Johnathan Brunelle"},
     {message :  "I am currently studying Electrical Computer Engineering at the"},
-    {message :  "at the University of Western Ontario. Enter command 'help' to"},
+    {message :  "at the University of Western Ontario."},
     {message :  "Enter 'help' to view the commands"}],
 
   init: function() {
@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
     historyList.pushObject({message:cmnd});
     historyList.pushObject({message:"jsh: " + cmnd + ": command not found"});
 
-    // Used for debugging 
+    // Used for debugging
     if(cmnd === "> stabilitycheck"){
       console.log("Command History: " + this.get("commandHistory").length);
       console.log("Number Of Lines: " + this.get("numberOfLines"));
