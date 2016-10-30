@@ -1,7 +1,7 @@
-# Personalsite
+# Terminal Site
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Personal Website made with Ember.js, that simulates a terminal window
+
 
 ## Prerequisites
 
