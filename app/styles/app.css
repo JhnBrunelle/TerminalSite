@@ -1,30 +1,51 @@
+
+body{
+  background-color: #444547;
+}
 .topBar{
-  width:590px;
-  height:30px;
+  width:582px;
+  height:25px;
   background-color:black;
   border-radius: 5px 5px 0px 0px;
+  display: flex;
+  overflow:hidden;
+  padding-top:2px;
+  padding-left:8px;
+  align-items: center;
 }
+
+.circle {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin:0px 3px;
+}
+
 .terminalWindow {
-  padding:20px;
-  background-color: lightslategray;
-  color: dimgrey;
+  padding:17px 20px;
+  background-color: #262B31;
+  color: #819396;
   list-style-type: none;
   width:550px;
   height:400px;
   font-family: "Lucida Console";
   font-size: small;
   border-radius: 0px 0px 5px 5px;
+  letter-spacing: 1px;
 }
 .terminalWindow li {
-  padding: 3px 0px;
+  padding: 4px 0px;
 }
 
 .terminalWindow input {
-  background-color: lightslategray;
+  background-color: #262B31;
+  letter-spacing: 1px;
   border: 0px;
   outline: none;
-  color:dimgrey;
+  color: #008DD4;
+  margin-top: 1px;
   font-family: "Lucida Console";
   font-size: small;
+  width:100%;
 }
 

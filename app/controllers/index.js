@@ -3,39 +3,58 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   numberOfLines: 4,
+  textRows: 18,
   commandHistory:[
-    {message : "Hello, My name is Johnathan Brunelle, and welcome to my site."},
+    {message :  "Hello, My name is Johnathan Brunelle"},
     {message :  "I am currently studying Electrical Computer Engineering at the"},
-    {message :  "at the university of Western Ontario. Enter command 'help' to"},
-    {message :  "view commands"}],
+    {message :  "at the University of Western Ontario. Enter command 'help' to"},
+    {message :  "Enter 'help' to view the commands"}],
 
   init: function() {
-
+    this.set('textBuffer', '> ');
   },
 
-  // Only maintains 15 history items at a time
-  shiftList: function(historyList){
-    console.log(historyList.length);
-    if(historyList.length === 15){
-      this.get('commandHistory').set('commandHistory',historyList.shift());
+  /*
+   * Function to maintain correct number of lines
+   * Always will keep this
+   */
+  checkLines: function(historyList){
+
+    if(this.get('numberOfLines') > this.get('textRows')){
+
+      // Shift a certain amount
+      let difference = this.get('numberOfLines') - this.get('textRows');
+
+      for(var i = 0; i < difference; i++){
+        this.get('commandHistory').set('commandHistory', historyList.shift());
+      }
+
+      this.set('numberOfLines', this.get('textRows'));
     }
   },
 
-  // Send text to command
+  // Match the Command to a function and perform
   registerCommand : function(cmnd){
     var historyList = this.get("commandHistory");
-    this.shiftList(historyList);
-    historyList.pushObject({message:"-sh: " + cmnd + ": command not found"});
+    this.set("numberOfLines", this.get("numberOfLines") + 2);
+    this.checkLines(historyList);
+    historyList.pushObject({message:cmnd});
+    historyList.pushObject({message:"jsh: " + cmnd + ": command not found"});
+
+    // Used for debugging 
+    if(cmnd === "> stabilitycheck"){
+      console.log("Command History: " + this.get("commandHistory").length);
+      console.log("Number Of Lines: " + this.get("numberOfLines"));
+    }
+
   },
 
   actions: {
 
     inputLineHandler : function(text){
-      console.log(text);
       var historyList = this.get("commandHistory");
-      this.shiftList(historyList);
       this.registerCommand(text);
-      this.set('textBuffer', '');
+      this.set('textBuffer', '> ');
     }
   }
 });
