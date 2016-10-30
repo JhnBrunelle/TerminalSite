@@ -1,0 +1,30 @@
+.topBar{
+  width:590px;
+  height:30px;
+  background-color:black;
+  border-radius: 5px 5px 0px 0px;
+}
+.terminalWindow {
+  padding:20px;
+  background-color: lightslategray;
+  color: dimgrey;
+  list-style-type: none;
+  width:550px;
+  height:400px;
+  font-family: "Lucida Console";
+  font-size: small;
+  border-radius: 0px 0px 5px 5px;
+}
+.terminalWindow li {
+  padding: 3px 0px;
+}
+
+.terminalWindow input {
+  background-color: lightslategray;
+  border: 0px;
+  outline: none;
+  color:dimgrey;
+  font-family: "Lucida Console";
+  font-size: small;
+}
+
