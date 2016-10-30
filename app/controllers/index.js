@@ -4,13 +4,13 @@ export default Ember.Controller.extend({
 
   numberOfLines: 4,   // The amount of lines currently displayed on screen
   textRows: 18,       // Number of Rows the Terminal Window can hold
-  commandHistory:[
-    {message :  "Hello, My name is Johnathan Brunelle."},
-    {message :  "I am an Electrical Computer Engineering Student in my second"},
-    {message :  "year at the University of Western Ontario."},
-    {message :  "Enter 'help' to view the commands."}],
+  commandHistory: [
+    {message: "Hello, My name is Johnathan Brunelle."},
+    {message: "I am an Electrical Computer Engineering Student in my second"},
+    {message: "year at the University of Western Ontario."},
+    {message: "Enter 'help' to view the commands."}],
 
-  init: function() {
+  init: function () {
 
     this.set('textBuffer', '> ');
   },
@@ -19,14 +19,14 @@ export default Ember.Controller.extend({
    * Ensures that text does not run off the terminal window
    * @param historyList current text displayed
    */
-  checkLines: function(historyList){
+  checkLines: function (historyList) {
 
-    if(this.get('numberOfLines') > this.get('textRows')){
+    if (this.get('numberOfLines') > this.get('textRows')) {
 
       // Shift the queue a certain amount
       let difference = this.get('numberOfLines') - this.get('textRows');
 
-      for(var i = 0; i < difference; i++){
+      for (var i = 0; i < difference; i++) {
         this.get('commandHistory').set('commandHistory', historyList.shift());
       }
 
@@ -34,21 +34,28 @@ export default Ember.Controller.extend({
     }
   },
 
+  openExternalPage: function (page) {
+    var pages = {
+      github : 'https://github.com/JhnBrunelle',
+      linkedin: 'https://www.linkedin.com/in/johnbrunelleece'
+    }
+    window.open(pages[page]);
+  },
   /**
    * Process the user input, pointing it to correct function
    * and providing a response
    * @param cmnd user command
    */
-  registerCommand : function(cmnd){
+  registerCommand: function (cmnd) {
     var historyList = this.get("commandHistory");
 
 
     // Used for debugging
-    switch(cmnd) {
+    switch (cmnd) {
       case "> clear":
-            this.set('commandHistory', []);
-            this.set('numberOfLines', 0);
-            break;
+        this.set('commandHistory', []);
+        this.set('numberOfLines', 0);
+        break;
 
       case "> stabilitycheck":    // Used for Debugging
         console.log("commandHistory: " + this.get('commandHistory').length);
@@ -56,19 +63,47 @@ export default Ember.Controller.extend({
 
         this.set("numberOfLines", this.get("numberOfLines") + 2);
         this.checkLines(historyList);
-        historyList.pushObject({message:cmnd});
-        historyList.pushObject({message:"Stability Checked! View Console!"});
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "Stability Checked! View Console!"});
+        break;
+
+      case "> github":
+        this.set("numberOfLines", this.get("numberOfLines") + 2);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        this.openExternalPage("github");
+        historyList.pushObject({message: "Github opened!"});
+        break;
+
+      case "> linkedin":
+        this.set("numberOfLines", this.get("numberOfLines") + 2);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        this.openExternalPage("linkedin");
+        historyList.pushObject({message: "Linkedin opened!"});
+        break;
+
+      case "> degree":    // Used for Debugging
+        console.log("commandHistory: " + this.get('commandHistory').length);
+        console.log("numberOfLines:  " + this.get('numberOfLines'));
+
+        this.set("numberOfLines", this.get("numberOfLines") + 5);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "University Of Western Ontario"});
+        historyList.pushObject({message: "Bachelor of Engineering Science (BESc) in Computer Engineering"});
+        historyList.pushObject({message: "With specialty in Electronics"});
+        historyList.pushObject({message: "GPA: 3.9, Class of 2019"});
         break;
 
       default:
         this.set("numberOfLines", this.get("numberOfLines") + 2);
         this.checkLines(historyList);
-        historyList.pushObject({message:cmnd});
-        historyList.pushObject({message:"jsh: " + cmnd + ": command not found"});
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "jsh: " + cmnd + ": command not found"});
         break;
 
     }
-
 
 
   },
@@ -79,7 +114,7 @@ export default Ember.Controller.extend({
      * Handlees input from console command line
      * @param text User Input
      */
-    inputLineHandler : function(text){
+    inputLineHandler: function (text) {
       this.registerCommand(text);
       this.set('textBuffer', '> ');
     }
