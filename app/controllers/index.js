@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
   numberOfLines: 4,
   textRows: 18,
   commandHistory:[
-    {message :  "Hello, My name is Johnathan Brunelle"},
-    {message :  "I am currently studying Electrical Computer Engineering at the"},
-    {message :  "at the University of Western Ontario."},
-    {message :  "Enter 'help' to view the commands"}],
+    {message :  "Hello, My name is Johnathan Brunelle."},
+    {message :  "I am an Electrical Computer Engineering Student in my second"},
+    {message :  "year at the University of Western Ontario."},
+    {message :  "Enter 'help' to view the commands."}],
 
   init: function() {
     this.set('textBuffer', '> ');

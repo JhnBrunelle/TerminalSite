@@ -19,17 +19,52 @@ body{
 
 
 .banner{
+  padding-top: 20px;
   float:left;
   font-family: "Helvetica Neue";
   background-color: #262B31;
   text-align: center;
   width: 210px;
-  height:300px;
+  height:350px;
   top:0px;
   display:inline-block;
   border-radius: 0px 0px 5px 5px;
 
   color: #819396;
+  font-family: "Lucida Console";
+  list-style-type: none;
+
+}
+
+
+.banner li{
+  font-size: 12px;
+  margin: 1px 20px; ;
+  padding: 4px 0px;
+  text-align: left;
+}
+
+.banner li a:link{
+  text-decoration: none;
+}
+
+.banner li a:visited {
+  color: #819396;
+}
+
+.banner li a:hover{
+  color: #008DD4;
+}
+
+.banner li a:active{
+  color: #008DD4;
+}
+
+img{
+  width:160px;
+  height:160px;
+  margin-bottom:20px;
+  border-radius: 70px;
 }
 
 .topBar{
