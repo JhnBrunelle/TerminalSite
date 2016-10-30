@@ -1,15 +1,13 @@
-<div class="wrapper">
 
-    <div class="topBar">
-        <div class="circle" style="background-color: #E74C3C"></div>
-        <div class="circle" style="background-color: #F1C40F"></div>
-        <div class="circle" style="background-color: #2ECC71"></div>
-    </div>
+  <div class="topBar">
+      <div class="circle" style="background-color: #E74C3C"></div>
+      <div class="circle" style="background-color: #F1C40F"></div>
+      <div class="circle" style="background-color: #2ECC71"></div>
+  </div>
 
-    <div class="terminalWindow">
-      {{#each commandHistory as |history|}}
-          <li>{{history.message}}</li>
-      {{/each}}
-      {{input type="text" value=textBuffer insert-newline="inputLineHandler" autofocus="autofocus"}}
-    </div>
-</div>
+  <div class="terminalWindow">
+    {{#each commandHistory as |history|}}
+        <li>{{history.message}}</li>
+    {{/each}}
+    {{input type="text" value=textBuffer insert-newline="inputLineHandler" autofocus="autofocus"}}
+  </div>
