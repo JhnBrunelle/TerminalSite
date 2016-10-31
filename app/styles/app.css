@@ -55,6 +55,7 @@ body{
 
 .banner li a:link{
   text-decoration: none;
+  color: #819396;
 }
 
 .banner li a:visited {
@@ -160,8 +161,10 @@ img{
     display: none !important;
   }
   .wrapperTW{
-    display: none !important;
+    display: block;
+    margin: 0 auto;
   }
+
 
 
 }

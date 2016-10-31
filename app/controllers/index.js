@@ -52,6 +52,22 @@ export default Ember.Controller.extend({
 
     // Used for debugging
     switch (cmnd) {
+      case "> help":
+        this.set("numberOfLines", this.get("numberOfLines") + 7);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "Help Menu"});
+        historyList.pushObject({message: "  clear - Clear terminal window"});
+        historyList.pushObject({message: "  about - Info about me"});
+        historyList.pushObject({message: "  degree - Display Degree Info"});
+        historyList.pushObject({message: "  github - Open Github Page"});
+        historyList.pushObject({message: "  linkedin - Open Linkedin Page"});
+        historyList.pushObject({message: "  contact - Display Contact Info"});
+
+        break;
+
+        break;
+
       case "> clear":
         this.set('commandHistory', []);
         this.set('numberOfLines', 0);
@@ -65,6 +81,17 @@ export default Ember.Controller.extend({
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
         historyList.pushObject({message: "Stability Checked! View Console!"});
+        break;
+
+      case "> contact":    // Used for Debugging
+        console.log("commandHistory: " + this.get('commandHistory').length);
+        console.log("numberOfLines:  " + this.get('numberOfLines'));
+
+        this.set("numberOfLines", this.get("numberOfLines") + 3);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "Phone - (226)700-3655"});
+        historyList.pushObject({message: "Email - jhnbrunelle@gmail.com"});
         break;
 
       case "> github":
@@ -83,10 +110,7 @@ export default Ember.Controller.extend({
         historyList.pushObject({message: "Linkedin opened!"});
         break;
 
-      case "> degree":    // Used for Debugging
-        console.log("commandHistory: " + this.get('commandHistory').length);
-        console.log("numberOfLines:  " + this.get('numberOfLines'));
-
+      case "> degree":    // States my Degree
         this.set("numberOfLines", this.get("numberOfLines") + 5);
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
