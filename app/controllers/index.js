@@ -53,7 +53,7 @@ export default Ember.Controller.extend({
     // Used for debugging
     switch (cmnd) {
       case "> help":
-        this.set("numberOfLines", this.get("numberOfLines") + 7);
+        this.set("numberOfLines", this.get("numberOfLines") + 8);
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
         historyList.pushObject({message: "Help Menu"});
