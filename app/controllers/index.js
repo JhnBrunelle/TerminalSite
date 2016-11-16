@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     var pages = {
       github : 'https://github.com/JhnBrunelle',
       linkedin: 'https://www.linkedin.com/in/johnbrunelleece'
-    }
+    };
     window.open(pages[page]);
   },
   /**
@@ -53,6 +53,7 @@ export default Ember.Controller.extend({
     // Used for debugging
     switch (cmnd) {
       case "> help":
+      case "> ls":
         this.set("numberOfLines", this.get("numberOfLines") + 8);
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
@@ -63,9 +64,6 @@ export default Ember.Controller.extend({
         historyList.pushObject({message: "  github - Open Github Page"});
         historyList.pushObject({message: "  linkedin - Open Linkedin Page"});
         historyList.pushObject({message: "  contact - Display Contact Info"});
-
-        break;
-
         break;
 
       case "> clear":
