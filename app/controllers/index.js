@@ -85,10 +85,9 @@ export default Ember.Controller.extend({
         console.log("commandHistory: " + this.get('commandHistory').length);
         console.log("numberOfLines:  " + this.get('numberOfLines'));
 
-        this.set("numberOfLines", this.get("numberOfLines") + 3);
+        this.set("numberOfLines", this.get("numberOfLines") + 2);
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
-        historyList.pushObject({message: "Phone - (226)700-3655"});
         historyList.pushObject({message: "Email - jhnbrunelle@gmail.com"});
         break;
 
