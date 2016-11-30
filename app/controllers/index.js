@@ -114,7 +114,18 @@ export default Ember.Controller.extend({
         historyList.pushObject({message: "University Of Western Ontario"});
         historyList.pushObject({message: "Bachelor of Engineering Science (BESc) in Computer Engineering"});
         historyList.pushObject({message: "With specialty in Electronics"});
-        historyList.pushObject({message: "GPA: 3.9, Class of 2019"});
+        historyList.pushObject({message: "GPA: 3.7, Class of 2019"});
+        break;
+
+      case "> about":
+        this.set("numberOfLines", this.get("numberOfLines") + 6);
+        this.checkLines(historyList);
+        historyList.pushObject({message: cmnd});
+        historyList.pushObject({message: "  I'm an Electrical Computer Engineering student from"});
+        historyList.pushObject({message: "  California. I enjoy coding in Javascript, Python, Java  "});
+        historyList.pushObject({message: "  and C++."});
+        historyList.pushObject({message: "  After University, I hope to either go into FPGA, embedded or"});
+        historyList.pushObject({message: "  Software development. "});
         break;
 
       default:
