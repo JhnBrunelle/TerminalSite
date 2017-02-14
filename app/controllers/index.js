@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   textRows: 18,       // Number of Rows the Terminal Window can hold
   commandHistory: [
     {message: "Hello, My name is Johnathan Brunelle."},
-    {message: "I am an Electrical Computer Engineering Student in my second"},
+    {message: "I am an Electrical Engineering Student in my second"},
     {message: "year at the University of Western Ontario."},
     {message: "Enter 'help' to view the commands."}],
 
@@ -108,12 +108,11 @@ export default Ember.Controller.extend({
         break;
 
       case "> degree":    // States my Degree
-        this.set("numberOfLines", this.get("numberOfLines") + 5);
+        this.set("numberOfLines", this.get("numberOfLines") + 4);
         this.checkLines(historyList);
         historyList.pushObject({message: cmnd});
         historyList.pushObject({message: "University Of Western Ontario"});
-        historyList.pushObject({message: "Bachelor of Engineering Science (BESc) in Computer Engineering"});
-        historyList.pushObject({message: "With specialty in Electronics"});
+        historyList.pushObject({message: "Bachelor of Engineering Science (BESc) in Electrical Engineering"});
         historyList.pushObject({message: "GPA: 3.7, Class of 2019"});
         break;
 
