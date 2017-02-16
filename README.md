@@ -1,6 +1,8 @@
 # Terminal Site
 
-Personal Website made with Ember.js, that simulates a terminal window
+Source code for my personal site. See [Here](http://jhnbrunelle.github.io)
+
+Uses [EmberJS](http://emberjs.com/)
 
 
 ## Prerequisites
