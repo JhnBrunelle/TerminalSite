@@ -9,5 +9,8 @@
     {{#each commandHistory as |history|}}
         <li>{{history.message}}</li>
     {{/each}}
-    {{input type="text" value=textBuffer insert-newline="inputLineHandler" maxlength="60" autofocus="autofocus"}}
+    <div class="input">
+      <label for="line" style="color:#008DD4;">user@jsh: ~$</label>
+      {{input type="text" id="line"value=textBuffer insert-newline="inputLineHandler" maxlength="40" spellcheck="false" autofocus="autofocus"}}
+    </div>
   </div>
