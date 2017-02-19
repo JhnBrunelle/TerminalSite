@@ -1,6 +1,6 @@
 # Terminal Site
 
-Source code for my personal site. See [Here](http://jhnbrunelle.github.io)
+Source code for my personal site. Built version available at [JohnB.Run](http:johnb.run)  
 
 Uses [EmberJS](http://emberjs.com/)
 
