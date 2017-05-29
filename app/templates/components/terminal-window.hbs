@@ -1,0 +1,27 @@
+{{!--{{yield}}--}}
+{{!textarea  class='terminalWindow'
+            value=buffer
+            enter='onEnter'
+            rows=30
+            cols=90}}
+
+<div class="twContainer" style="position:absolute">
+<div class="topBar">
+  <div class="circle" style="background-color: #E74C3C"></div>
+  <div class="circle" style="background-color: #F1C40F"></div>
+  <div class="circle" style="background-color: #2ECC71"></div>
+</div>
+
+<div class='terminalWindow' style="overflow:hidden">
+    {{textarea id='outputWin' class='terminalWindowOut'
+            value=buffer
+            readonly=true
+            cols=90
+            rows=lines}}
+    <p style="margin:0px">
+      <span class="prompt" style="color:dodgerblue">{{prompt}}</span>
+      {{input type="text" value=inputText autofocus=true enter=(action 'onEnter' value)}}
+    </p>
+
+</div>
+</div>
