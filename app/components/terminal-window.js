@@ -58,6 +58,8 @@ export default Ember.Component.extend({
         this.addLineToBuffer(this.get('inputText'));
       })
       this.set('inputText', "");
+      //this.set('isShowingModal', !this.get('isShowingModal'));
+      this.sendAction('toggleModal');
     }
   }
 });

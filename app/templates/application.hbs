@@ -1,3 +1,12 @@
+{{#if isShowingModal}}
+  {{#modal-dialog onClose="toggleModal"
+                  hasOverlay=false
+                  clickOutsideToClose=true
+                  animatable=true}}
+    Hello :D
+  {{/modal-dialog}}
+{{/if}}
+
 <div id="stars"></div>
 <div class="container">
     <div class="banner">
@@ -19,7 +28,8 @@
         </li>
     </div>
     <div class="wrapperTW">
-      {{outlet}}
+      {{!outlet}}
+      {{terminal-window toggleModal='toggleModal'}}
     </div>
     <div class="versionNumber">
         jsh v1.12 - Made with Ember.js
