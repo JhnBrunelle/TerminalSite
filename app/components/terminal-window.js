@@ -1,10 +1,27 @@
 import Ember from 'ember';
+import cmd from "../utils/command";
 
 export default Ember.Component.extend({
-  buffer: "So here's some text!",
+  /**
+   * Stores an entire account of whats being shown in the window
+   */
+  buffer: "Hi my name is John Brunelle, I am an Electrical Engineering and CS student at the" +
+          " University of Western Ontaro. Type help to view more commands or use the links at" +
+          " the side, to learn more about me! ",
 
+  /**
+   * Stores the prompt for the terminal
+   */
   prompt: " user@jsh $ ",
-  lines:1,
+
+  /**
+   * Stores amount of lines currently displayed
+   */
+  lines:4,
+
+  /**
+   * Current input text
+   */
   inputText: "",
 
   init: function(){
@@ -35,11 +52,11 @@ export default Ember.Component.extend({
   addLineToBuffer: function(line){
 
 
-    if(this.get('lines') < 24){
+    if(this.get('lines') < 16){
       this.set('lines', this.get('lines') + 1);
-      this.set('buffer', this.get('buffer') + '\n' + line);
+      this.set('buffer', this.get('buffer') + '\n' + this.get('prompt').trim() + " " + line.replace(/(\r\n|\n|\r)/gm,""));
     }else{
-      this.set('buffer', this.get('buffer') + line + '\n');
+      this.set('buffer', this.get('buffer') + this.get('prompt').trim() + " " + line + '\n');
     }
 
     // Scroll to Bottom of TextArea
@@ -54,8 +71,13 @@ export default Ember.Component.extend({
      */
     onEnter: function () {
       console.log(this.get('inputText'));
+      const callBack = cmd.pushCommand(this.get('inputText'));
+
       Ember.run(()=>{
         this.addLineToBuffer(this.get('inputText'));
+        if (cmd.lastReturn !== ""){
+            this.addLineToBuffer(cmd.lastReturn);
+        }
       })
       this.set('inputText', "");
       //this.set('isShowingModal', !this.get('isShowingModal'));

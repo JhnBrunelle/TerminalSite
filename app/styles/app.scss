@@ -6,6 +6,11 @@ body{
   background-color: #293440;
 }
 
+.tech-modal{
+  left: 100px;
+  top: 100px;
+}
+
 .versionNumber{
   position: absolute;
   left: 4px;
@@ -142,6 +147,7 @@ img{
   border-style: none;
   resize: none;
   overflow:hidden;
+  line-height: 190%;
 }
 
 .terminalWindow li {
@@ -287,8 +293,3 @@ html {
     transform: translateY(0px);
   }
 }
-
-
-
-
-

@@ -1,10 +1,10 @@
 {{#if isShowingModal}}
-  {{#modal-dialog onClose="toggleModal"
-                  hasOverlay=false
+  {{#tech-modal   onClose="toggleModal"
+                  hasOverlay=true
                   clickOutsideToClose=true
+                  targetAttachment="center"
                   animatable=true}}
-    Hello :D
-  {{/modal-dialog}}
+  {{/tech-modal}}
 {{/if}}
 
 <div id="stars"></div>
